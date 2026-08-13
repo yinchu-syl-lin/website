@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){var g=function(vt){if(!vt)return;try{vt.ready&&vt.ready.catch(function(){});vt.finished&&vt.finished.catch(function(){});vt.updateCallbackDone&&vt.updateCallbackDone.catch(function(){});}catch(e){}};window.addEventListener("pagereveal",function(e){g(e&&e.viewTransition);},true);window.addEventListener("pageswap",function(e){g(e&&e.viewTransition);},true);window.addEventListener("unhandledrejection",function(e){var r=e.reason||{},m=String(r.message||r.name||r||"");if(/transition/i.test(m)&&/(skip|abort|invalid state|not ready)/i.test(m)){e.preventDefault();e.stopImmediatePropagation&&e.stopImmediatePropagation();}},true);if(document.startViewTransition){var n=document.startViewTransition.bind(document);document.startViewTransition=function(){var vt=n.apply(null,arguments);g(vt);return vt;};}})();</script>
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<title>Yin-Chu Lin — Communications &amp; Content Strategy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -85,77 +79,104 @@
   .impact.lit { background-size: 100% 100%; }
   @keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 </style>
-</helmet>
+<style>
+.only-narrow { display: none; }
+@media (max-width: 767px) { .only-wide { display: none; } .only-narrow { display: block; } }
+.h1:hover { border-bottom-color: #7a1f2b }
+.h2:hover { border-bottom-color: #7a1f2b }
+.h3:hover { border-bottom-color: #7a1f2b }
+.h4:hover { border-bottom-color: #7a1f2b }
+.h5:hover { transform: rotate(-2deg) scale(1.06) translateY(-8px); filter: drop-shadow(0 30px 44px rgba(25,23,19,0.2)) }
+.h6:hover { transform: rotate(-3deg) scale(1.08) translateY(-6px); filter: drop-shadow(0 24px 34px rgba(80,40,20,0.3)) }
+.h7:hover { transform: rotate(-8deg) scale(1.12); filter: drop-shadow(0 24px 32px rgba(122,31,43,0.32)) }
+.h8:hover { transform: rotate(-6deg) scale(1.08) }
+.h9:hover { transform: rotate(-1deg) scale(1.05) translateY(-6px); filter: drop-shadow(0 26px 40px rgba(160,80,20,0.28)) }
+.h10:hover { transform: rotate(0deg) scale(1.06) translateY(-10px); filter: drop-shadow(0 22px 40px rgba(60,120,190,0.45)) }
+.h11:hover { transform: rotate(0deg) scale(1.05); filter: drop-shadow(0 26px 40px rgba(122,31,43,0.3)) }
+.h12:hover { transform: rotate(2deg) scale(1.09) translateY(-6px); filter: drop-shadow(0 22px 34px rgba(25,23,19,0.3)) }
+.h13:hover { transform: rotate(1deg) scale(1.06) translateY(-8px); filter: drop-shadow(0 24px 38px rgba(40,90,220,0.4)) }
+.h14:hover { transform: rotate(0deg) scale(1.05) translateY(-6px); filter: drop-shadow(0 22px 40px rgba(40,110,230,0.45)) }
+.h15:hover { background: #191713; color: #faf6f0; border-color: #191713 }
+.h16:hover { transform: rotate(0deg) translateY(-6px) }
+.h17:hover { filter: saturate(1.05) contrast(1.02) sepia(0) }
+.h18:hover { transform: translateY(-3px); background: #7a1f2b }
+.h19:hover { color: #7a1f2b }
+.h20:hover { background: #7a1f2b; border-color: #7a1f2b; color: #fdf7ea }
+.h21:hover { background: #7a1f2b; border-color: #7a1f2b; color: #fdf7ea }
+.h22:hover { transform: rotate(2deg) scale(1.06) }
+</style>
+</head>
+<body>
 <div style="font-family: 'Space Mono', ui-monospace, monospace; overflow-x: hidden">
 
   <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px 4vw; background: rgba(250,246,240,0.82); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(25,23,19,0.08)">
     <a href="#home" style="font-family: 'Instrument Serif', serif; font-size: 21px; letter-spacing: 0.01em">Yin-Chu Lin</a>
       <div id="nav-desktop" style="display: flex; gap: 26px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase">
-        <a href="#home" style="padding-bottom: 2px; border-bottom: 1px solid transparent" style-hover="border-bottom-color: #7a1f2b">Home</a>
-        <a href="#work" style="padding-bottom: 2px; border-bottom: 1px solid transparent" style-hover="border-bottom-color: #7a1f2b">Work</a>
-        <a href="#resume" style="padding-bottom: 2px; border-bottom: 1px solid transparent" style-hover="border-bottom-color: #7a1f2b">Resume</a>
-        <a href="#contact" style="padding-bottom: 2px; border-bottom: 1px solid transparent" style-hover="border-bottom-color: #7a1f2b">Contact</a>
+        <a href="#home" style="padding-bottom: 2px; border-bottom: 1px solid transparent" class="h1">Home</a>
+        <a href="#work" style="padding-bottom: 2px; border-bottom: 1px solid transparent" class="h2">Work</a>
+        <a href="#resume" style="padding-bottom: 2px; border-bottom: 1px solid transparent" class="h3">Resume</a>
+        <a href="#contact" style="padding-bottom: 2px; border-bottom: 1px solid transparent" class="h4">Contact</a>
       </div>
-      <button id="nav-mobile" type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="width: 44px; height: 44px; flex-direction: column; justify-content: center; gap: 5px; padding: 0 10px; background: none; border: 0; cursor: pointer">
+      <button id="nav-mobile" type="button" id="menu-toggle" aria-label="Menu" style="width: 44px; height: 44px; flex-direction: column; justify-content: center; gap: 5px; padding: 0 10px; background: none; border: 0; cursor: pointer">
         <span style="display: block; height: 1.5px; background: #191713"></span>
         <span style="display: block; height: 1.5px; background: #191713"></span>
         <span style="display: block; height: 1.5px; background: #191713"></span>
       </button>
-    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div id="menu-wrap" hidden>
       <div id="nav-menu" style="position: absolute; left: 0; right: 0; top: 100%; display: flex; flex-direction: column; background: #faf6f0; border-bottom: 1px solid rgba(25,23,19,0.12); padding: 0.5rem 1rem 1rem">
-        <a href="#home" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Home</a>
-        <a href="#work" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Work</a>
-        <a href="#resume" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Resume</a>
-        <a href="#contact" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Contact</a>
+        <a href="#home" data-close-menu style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Home</a>
+        <a href="#work" data-close-menu style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Work</a>
+        <a href="#resume" data-close-menu style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Resume</a>
+        <a href="#contact" data-close-menu style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Contact</a>
       </div>
-    </sc-if>
+    </div>
   </nav>
 
   <section id="home" data-screen-label="Home" style="position: relative; height: 100vh; min-height: 560px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: clamp(76px, 10vh, 110px) 4vw clamp(30px, 5vh, 56px); overflow: hidden">
 
-    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <div class="only-wide">
       <div style="position: absolute; inset: 0">
-    <div style="position: absolute; left: 1%; top: 2%; width: 22%; min-width: 150px; transform: rotate(2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; cursor: default; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.13))" style-hover="transform: rotate(-2deg) scale(1.06) translateY(-8px); filter: drop-shadow(0 30px 44px rgba(25,23,19,0.2))">
+    <div style="position: absolute; left: 1%; top: 2%; width: 22%; min-width: 150px; transform: rotate(2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; cursor: default; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.13))" class="h5">
       <img data-x="01-screenplay-sylvia" src="uploads/props/screenplay.png" alt="Screenplay page" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 63%; top: 62%; width: 13%; min-width: 96px; transform: rotate(5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.16))" style-hover="transform: rotate(-3deg) scale(1.08) translateY(-6px); filter: drop-shadow(0 24px 34px rgba(80,40,20,0.3))">
+    <div style="position: absolute; left: 63%; top: 62%; width: 13%; min-width: 96px; transform: rotate(5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.16))" class="h6">
       <img src="uploads/props/iced-coffee.png" alt="Iced americano" style="display: block; width: 100%; height: auto" />
     </div>
 
-    <div style="position: absolute; left: 77.5%; top: 62%; width: 3.4%; min-width: 26px; transform: rotate(8deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 14px 20px rgba(25,23,19,0.16))" style-hover="transform: rotate(-8deg) scale(1.12); filter: drop-shadow(0 24px 32px rgba(122,31,43,0.32))">
+    <div style="position: absolute; left: 77.5%; top: 62%; width: 3.4%; min-width: 26px; transform: rotate(8deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 14px 20px rgba(25,23,19,0.16))" class="h7">
       <img src="uploads/props/lipstick.png" alt="Lipstick" style="display: block; width: 100%; height: auto" />
     </div>
 
-    <div style="position: absolute; left: 6%; top: 30%; width: 23%; min-width: 150px; transform: rotate(0deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1); animation: drift 7s ease-in-out infinite" style-hover="transform: rotate(-6deg) scale(1.08)">
+    <div style="position: absolute; left: 6%; top: 30%; width: 23%; min-width: 150px; transform: rotate(0deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1); animation: drift 7s ease-in-out infinite" class="h8">
       <img src="uploads/props/flower.png" alt="Anthurium flower" style="display: block; width: 100%; height: auto; max-height: 46vh; object-fit: contain; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.14))" />
     </div>
 
-    <div style="position: absolute; left: -1%; bottom: -2%; width: 31%; min-width: 200px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.14))" style-hover="transform: rotate(-1deg) scale(1.05) translateY(-6px); filter: drop-shadow(0 26px 40px rgba(160,80,20,0.28))">
+    <div style="position: absolute; left: -1%; bottom: -2%; width: 31%; min-width: 200px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.14))" class="h9">
       <img data-x="02-film-roll" src="uploads/props/film-roll.png" alt="35mm film roll" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 67%; top: 34%; width: 15%; min-width: 110px; transform: rotate(-2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" style-hover="transform: rotate(0deg) scale(1.06) translateY(-10px); filter: drop-shadow(0 22px 40px rgba(60,120,190,0.45))">
+    <div style="position: absolute; left: 67%; top: 34%; width: 15%; min-width: 110px; transform: rotate(-2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" class="h10">
       <img data-x="04-streaming-video-player" src="uploads/props/video-player.png" alt="Video player window" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 66%; top: 1%; width: 31%; min-width: 200px; transform: rotate(-3deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.15))" style-hover="transform: rotate(0deg) scale(1.05); filter: drop-shadow(0 26px 40px rgba(122,31,43,0.3))">
+    <div style="position: absolute; left: 66%; top: 1%; width: 31%; min-width: 200px; transform: rotate(-3deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.15))" class="h11">
       <img data-x="05-vinyl-record" src="uploads/props/vinyl.png" alt="Vinyl record in sleeve" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 86.5%; top: 70%; width: 13%; min-width: 96px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.18))" style-hover="transform: rotate(2deg) scale(1.09) translateY(-6px); filter: drop-shadow(0 22px 34px rgba(25,23,19,0.3))">
+    <div style="position: absolute; left: 86.5%; top: 70%; width: 13%; min-width: 96px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.18))" class="h12">
       <img src="uploads/props/microphone.png" alt="Broadcast microphone" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 83%; top: 44%; width: 15%; min-width: 105px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" style-hover="transform: rotate(1deg) scale(1.06) translateY(-8px); filter: drop-shadow(0 24px 38px rgba(40,90,220,0.4))">
+    <div style="position: absolute; left: 83%; top: 44%; width: 15%; min-width: 105px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" class="h13">
       <img data-x="08-press-kit-folder" src="uploads/props/press-kit.png" alt="Press kit folder" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 16%; top: 55%; width: 17%; min-width: 130px; transform: rotate(-5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.14))" style-hover="transform: rotate(0deg) scale(1.05) translateY(-6px); filter: drop-shadow(0 22px 40px rgba(40,110,230,0.45))">
+    <div style="position: absolute; left: 16%; top: 55%; width: 17%; min-width: 130px; transform: rotate(-5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.14))" class="h14">
       <img src="uploads/props/audio-player.png" alt="Audio player" style="display: block; width: 100%; height: auto" />
     </div>
       </div>
-    </sc-if>
+    </div>
 
     <div style="position: relative; z-index: 5; width: clamp(240px, 32vw, 600px); text-align: center; display: flex; flex-direction: column; gap: clamp(16px, 2.4vh, 24px); align-items: center">
       <h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(44px, 6.4vw, 92px); line-height: 0.98; letter-spacing: -0.01em">Yin-Chu&nbsp; Lin</h1>
@@ -164,8 +185,8 @@
         <p style="margin: 0; font-size: 13px; letter-spacing: 0.08em; color: #6b645c">Culture · Media · Entertainment · Lifestyle</p>
       </div>
       <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.35; text-wrap: pretty">Making sense of people, stories, and change.</p>
-      <a href="#work" style="margin-top: 6px; padding: 11px 22px; border: 1px solid rgba(25,23,19,0.35); border-radius: 999px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease" style-hover="background: #191713; color: #faf6f0; border-color: #191713">See the work</a>
-      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <a href="#work" style="margin-top: 6px; padding: 11px 22px; border: 1px solid rgba(25,23,19,0.35); border-radius: 999px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease" class="h15">See the work</a>
+      <div class="only-narrow">
         <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 18px; margin-top: 14px">
           <img src="uploads/props/screenplay.png" alt="Screenplay page" style="width: 52px; height: auto; transform: rotate(-4deg); filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
           <img src="uploads/props/flower.png" alt="Anthurium flower" style="width: 46px; height: auto; transform: rotate(3deg); filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
@@ -173,7 +194,7 @@
           <img src="uploads/props/film-roll.png" alt="35mm film roll" style="width: 84px; height: auto; transform: rotate(2deg); filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
           <img src="uploads/props/microphone.png" alt="Broadcast microphone" style="width: 40px; height: auto; filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
         </div>
-      </sc-if>
+      </div>
     </div>
   </section>
 
@@ -183,7 +204,7 @@
         <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b645c">Work</p>
       </div>
       <div class="grid">
-        <a class="card time" href="work-podcast-production.dc.html" data-slug="work-podcast-production" aria-label="Podcast Production and Cross-Platform Content — case study">
+        <a class="card time" href="work-podcast-production.html" data-slug="work-podcast-production" aria-label="Podcast Production and Cross-Platform Content — case study">
           <div class="art">
             <img loading="lazy" decoding="async" src="uploads/photos/podcast-team.jpg" alt="PODCAST artwork" style="object-position: 50% 62%" />
 
@@ -202,7 +223,7 @@
             </div>
           </div>
         </a>
-        <a class="card time" href="work-publicity-media-relations.dc.html" data-slug="work-publicity-media-relations" aria-label="Publicity and Media Relations — case study">
+        <a class="card time" href="work-publicity-media-relations.html" data-slug="work-publicity-media-relations" aria-label="Publicity and Media Relations — case study">
           <div class="art">
             <img loading="lazy" decoding="async" src="uploads/photos/press-event.jpg" alt="PUBLICITY artwork" style="object-position: 32% 45%" />
           </div>
@@ -219,7 +240,7 @@
             </div>
           </div>
         </a>
-        <a class="card time" href="work-documentary-production.dc.html" data-slug="work-documentary-production" aria-label="Documentary Production and Editorial Development — case study">
+        <a class="card time" href="work-documentary-production.html" data-slug="work-documentary-production" aria-label="Documentary Production and Editorial Development — case study">
           <div class="art">
             <img loading="lazy" decoding="async" src="uploads/props/books.png" alt="DOCUMENTARY artwork" />
 
@@ -238,7 +259,7 @@
             </div>
           </div>
         </a>
-        <a class="card time" href="work-global-story-fest.dc.html" data-slug="work-global-story-fest" aria-label="Film Programming and Festival Partnerships — case study">
+        <a class="card time" href="work-global-story-fest.html" data-slug="work-global-story-fest" aria-label="Film Programming and Festival Partnerships — case study">
           <div class="art">
             <img loading="lazy" decoding="async" src="uploads/photos/story-fest.jpg" alt="FILM FESTIVAL artwork" />
           </div>
@@ -255,7 +276,7 @@
             </div>
           </div>
         </a>
-        <a class="card time" href="work-music-multimedia-reporting.dc.html" data-slug="work-music-multimedia-reporting" aria-label="Music and Culture Multimedia Reporting — case study">
+        <a class="card time" href="work-music-multimedia-reporting.html" data-slug="work-music-multimedia-reporting" aria-label="Music and Culture Multimedia Reporting — case study">
           <div class="art">
             <img loading="lazy" decoding="async" src="uploads/work/music-feature-page.png" alt="MULTIMEDIA REPORTING artwork" />
 
@@ -273,7 +294,7 @@
             </div>
           </div>
         </a>
-        <a class="card time" href="work-commonwealth-reporting.dc.html" data-slug="work-commonwealth-reporting" aria-label="Interview-Led Multimedia Reporting — case study">
+        <a class="card time" href="work-commonwealth-reporting.html" data-slug="work-commonwealth-reporting" aria-label="Interview-Led Multimedia Reporting — case study">
           <div class="art">
             <img loading="lazy" decoding="async" src="uploads/photos/climate-action.png" alt="JOURNALISM artwork" />
           </div>
@@ -298,20 +319,20 @@
     <div style="width: 100%; max-width: 1120px; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: stretch">
       <div style="flex: 0 1 min(100%, 250px); display: flex; flex-direction: column; gap: 26px">
         <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b645c">Resume</p>
-        <div style="position: relative; width: 100%; transform: rotate(-3deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1); background: #fffdf9; padding: 10px 10px 40px; box-shadow: 0 18px 34px rgba(25,23,19,0.16)" style-hover="transform: rotate(0deg) translateY(-6px)">
-          <img loading="lazy" decoding="async" src="uploads/photos/portrait.png" alt="Portrait of Yin-Chu Lin" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: cover; filter: saturate(0.82) contrast(1.06) sepia(0.12); transition: filter 0.6s ease" style-hover="filter: saturate(1.05) contrast(1.02) sepia(0)" />
+        <div style="position: relative; width: 100%; transform: rotate(-3deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1); background: #fffdf9; padding: 10px 10px 40px; box-shadow: 0 18px 34px rgba(25,23,19,0.16)" class="h16">
+          <img loading="lazy" decoding="async" src="uploads/photos/portrait.png" alt="Portrait of Yin-Chu Lin" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: cover; filter: saturate(0.82) contrast(1.06) sepia(0.12); transition: filter 0.6s ease" / class="h17">
           <span style="position: absolute; left: 12px; bottom: 13px; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6b645c">Yin-Chu Lin</span>
         </div>
         <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid rgba(25,23,19,0.14); padding-top: 16px">
           <p style="margin: 0; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">Practice</p>
           <p style="margin: 0; font-size: 12.5px; line-height: 1.8">Publicity · Content Strategy · Editorial · Multimedia Production</p>
         </div>
-        <a href="{{ resumeUrl }}" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: flex; align-items: center; gap: 12px; padding: 13px 22px; background: #191713; color: #faf6f0; border-radius: 999px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.3s ease, background 0.3s ease" style-hover="transform: translateY(-3px); background: #7a1f2b">Download PDF <span style="font-family: 'Instrument Serif', serif; font-size: 16px; letter-spacing: 0">↓</span></a>
+        <a href="uploads/Yin-Chu-Lin-Resume.pdf" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: flex; align-items: center; gap: 12px; padding: 13px 22px; background: #191713; color: #faf6f0; border-radius: 999px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.3s ease, background 0.3s ease" class="h18">Download PDF <span style="font-family: 'Instrument Serif', serif; font-size: 16px; letter-spacing: 0">↓</span></a>
       </div>
 
       <div style="flex: 1 1 min(100%, 480px); display: flex; flex-direction: column; gap: clamp(24px, 3.4vh, 40px)">
         <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(21px, 2vw, 32px); line-height: 1.3; text-wrap: pretty">Communications strategist with 5+ years of experience in earned media, editorial strategy, stakeholder engagement, and cross-cultural storytelling across nonprofit, news, and creator organizations.</p>
-        <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+        <div style="display: contents">
           <div style="display: flex; flex-wrap: wrap; gap: 28px 56px; border-top: 1px solid rgba(25,23,19,0.14); padding-top: clamp(18px, 2.6vh, 28px)">
             <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px">
               <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(52px, 5.6vw, 88px); line-height: 0.9; color: #7a1f2b" data-count="53" data-suffix="+">0+</p>
@@ -322,7 +343,7 @@
               <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #4a453f; max-width: 30ch">Short-form video views across social platforms</p>
             </div>
           </div>
-        </sc-if>
+        </div>
         <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(25,23,19,0.14)">
           <p style="margin: 0; padding: clamp(14px, 2vh, 20px) 0 6px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">Education</p>
           <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 12px 0; border-bottom: 1px solid rgba(25,23,19,0.1)">
@@ -362,15 +383,15 @@
             <div style="display: flex; flex-direction: column">
               <div style="display: flex; flex-wrap: wrap; gap: 6px 16px; border-bottom: 1px solid rgba(42,38,34,0.18); padding: 12px 14px">
                 <span style="flex: 0 0 66px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">To</span>
-                <a href="mailto:yinchu.syl.lin@gmail.com" style="font-size: 14px; letter-spacing: 0.01em" style-hover="color: #7a1f2b">yinchu.syl.lin@gmail.com</a>
+                <a href="mailto:yinchu.syl.lin@gmail.com" style="font-size: 14px; letter-spacing: 0.01em" class="h19">yinchu.syl.lin@gmail.com</a>
               </div>
               <div style="display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 12px 14px">
                 <span style="flex: 0 0 66px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">Subject</span>
                 <span style="font-size: 14px">Let’s create something together.</span>
               </div>
               <div style="display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid rgba(42,38,34,0.18); padding: 14px">
-                <a href="mailto:yinchu.syl.lin@gmail.com?subject=Let%E2%80%99s%20create%20something%20together." style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid #2a2622; background: #2a2622; color: #fdf7ea; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease" style-hover="background: #7a1f2b; border-color: #7a1f2b; color: #fdf7ea">Write an email ↗</a>
-                <button type="button" onClick="{{ copyEmail }}" style="display: flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid #2a2622; background: none; color: #2a2622; font-family: 'Space Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.3s ease, color 0.3s ease" style-hover="background: #7a1f2b; border-color: #7a1f2b; color: #fdf7ea">{{ copyLabel }}</button>
+                <a href="mailto:yinchu.syl.lin@gmail.com?subject=Let%E2%80%99s%20create%20something%20together." style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid #2a2622; background: #2a2622; color: #fdf7ea; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease" class="h20">Write an email ↗</a>
+                <button type="button" id="copy-email" style="display: flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid #2a2622; background: none; color: #2a2622; font-family: 'Space Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.3s ease, color 0.3s ease" class="h21">Copy address</button>
               </div>
             </div>
           </div>
@@ -392,7 +413,7 @@
         </div>
       </div>
     </div>
-    <div style="position: absolute; right: 3%; bottom: clamp(24px, 5vh, 56px); width: 13vw; min-width: 120px; max-height: 46vh; z-index: 1; transform: rotate(-8deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform: rotate(2deg) scale(1.06)">
+    <div style="position: absolute; right: 3%; bottom: clamp(24px, 5vh, 56px); width: 13vw; min-width: 120px; max-height: 46vh; z-index: 1; transform: rotate(-8deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1)" class="h22">
       <img src="uploads/props/flower.png" alt="Anthurium flower" style="display: block; width: 100%; height: auto; max-height: 46vh; object-fit: contain; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.14))" />
     </div>
   </section>
@@ -402,125 +423,28 @@
     <span>© 2026 Yin-Chu Lin</span>
   </footer>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;About&quot;},&quot;resumeUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/Yin-Chu-Lin-Resume.pdf&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Resume&quot;}}">
-class Component extends DCLogic {
-  state = { w: typeof window !== "undefined" ? window.innerWidth : 1440, menuOpen: false };
-  componentDidMount() {
-    const root = document.querySelector("#home") && document.querySelector("#home").parentElement;
-    this._measure = () => {
-      const w = root ? root.getBoundingClientRect().width : window.innerWidth;
-      if (w && Math.abs(w - this.state.w) > 1) this.setState({ w });
-    };
-    if (root && typeof ResizeObserver !== "undefined") {
-      this._ro = new ResizeObserver(this._measure);
-      this._ro.observe(root);
-    }
-    window.addEventListener("resize", this._measure);
-    this._measure();
-    this._io = new IntersectionObserver(
-      (entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("lit"); this._io.unobserve(en.target); } }),
-      { threshold: 0.6 }
-    );
-    this._wireCards();
-    this._observeImpacts();
-    this._countIo = new IntersectionObserver(
-      (entries) => entries.forEach((en) => { if (en.isIntersecting) { this._countIo.unobserve(en.target); this._runCount(en.target); } }),
-      { threshold: 0.6 }
-    );
-    this._observeCounts();
+
+<script>
+(function(){
+  var t = document.getElementById('menu-toggle'), w = document.getElementById('menu-wrap');
+  if (t && w) {
+    t.addEventListener('click', function(){ w.hidden = !w.hidden; t.setAttribute('aria-expanded', String(!w.hidden)); });
+    w.querySelectorAll('[data-close-menu]').forEach(function(a){ a.addEventListener('click', function(){ w.hidden = true; }); });
   }
-  componentDidUpdate() {
-    this._observeImpacts();
-    this._observeCounts();
+  var c = document.getElementById('copy-email');
+  if (c) c.addEventListener('click', function(){
+    var done = function(){ var o = c.textContent; c.textContent = 'Copied \u2713'; setTimeout(function(){ c.textContent = o; }, 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText('yinchu.syl.lin@gmail.com').then(done, done); else done();
+  });
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('lit'); io.unobserve(e.target); } }); }, { threshold: 0.6 });
+  document.querySelectorAll('.impact').forEach(function(el){ io.observe(el); });
+  var cio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (!e.isIntersecting) return; cio.unobserve(e.target); count(e.target); }); }, { threshold: 0.6 });
+  function count(el){
+    var target = parseFloat(el.getAttribute('data-count')), dec = parseInt(el.getAttribute('data-decimals') || '0', 10), sfx = el.getAttribute('data-suffix') || '', t0 = performance.now();
+    (function step(t){ var p = Math.min(1, (t - t0) / 900), e = 1 - Math.pow(1 - p, 3); el.textContent = (target * e).toFixed(dec) + sfx; if (p < 1) requestAnimationFrame(step); else el.textContent = target.toFixed(dec) + sfx; })(performance.now());
   }
-  _wireCards() {
-    const mark = (el) => {
-      document.querySelectorAll(".card").forEach((c) => { c.style.viewTransitionName = ""; });
-      if (el) el.style.viewTransitionName = "poster";
-    };
-    document.querySelectorAll(".card").forEach((c) => {
-      if (c.dataset.wired) return;
-      c.dataset.wired = "1";
-      const go = () => { try { sessionStorage.setItem("lastCard", c.dataset.slug); } catch (e) {} mark(c); };
-      c.addEventListener("click", go);
-      c.addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
-    });
-    if (!this._revealWired) {
-      this._revealWired = true;
-      const restore = () => {
-        let slug = null;
-        try { slug = sessionStorage.getItem("lastCard"); } catch (e) {}
-        const el = slug && document.querySelector('.card[data-slug="' + slug + '"]');
-        if (el) { mark(el); setTimeout(() => mark(null), 800); }
-      };
-      window.addEventListener("pagereveal", (e) => {
-        if (e && e.viewTransition && e.viewTransition.finished) e.viewTransition.finished.catch(() => {});
-        restore();
-      });
-      window.addEventListener("pageshow", (e) => { if (e.persisted) restore(); });
-      window.addEventListener("pageswap", (e) => {
-        if (e && e.viewTransition && e.viewTransition.finished) e.viewTransition.finished.catch(() => {});
-      });
-      window.addEventListener("unhandledrejection", (e) => {
-        if (e.reason && /Transition was skipped/i.test(String(e.reason.message || e.reason))) e.preventDefault();
-      });
-    }
-  }
-  _observeCounts() {
-    if (!this._countIo) return;
-    document.querySelectorAll("[data-count]:not([data-counted])").forEach((el) => this._countIo.observe(el));
-  }
-  _runCount(el) {
-    el.setAttribute("data-counted", "1");
-    const target = parseFloat(el.getAttribute("data-count"));
-    const dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
-    const suffix = el.getAttribute("data-suffix") || "";
-    const dur = 900;
-    const t0 = performance.now();
-    const step = (t) => {
-      const p = Math.min(1, (t - t0) / dur);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = (target * eased).toFixed(dec) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target.toFixed(dec) + suffix;
-    };
-    requestAnimationFrame(step);
-  }
-  _observeImpacts() {
-    if (!this._io) return;
-    document.querySelectorAll(".impact:not(.lit)").forEach((el) => this._io.observe(el));
-  }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this._measure);
-    if (this._ro) this._ro.disconnect();
-    if (this._io) this._io.disconnect();
-    if (this._countIo) this._countIo.disconnect();
-  }
-  renderVals() {
-    const wide = this.state.w >= 768;
-    return {
-      wide,
-      narrow: !wide,
-      menuOpen: !wide && this.state.menuOpen,
-      copyLabel: this.state.copied ? "Copied ✓" : "Copy address",
-      copyEmail: () => {
-        const addr = "yinchu.syl.lin@gmail.com";
-        const done = () => {
-          this.setState({ copied: true });
-          clearTimeout(this._copyT);
-          this._copyT = setTimeout(() => this.setState({ copied: false }), 1800);
-        };
-        if (navigator.clipboard) navigator.clipboard.writeText(addr).then(done, done);
-        else done();
-      },
-      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
-      closeMenu: () => this.setState({ menuOpen: false }),
-      showStats: this.props.showStats ?? true,
-      resumeUrl: this.props.resumeUrl ?? "uploads/Yin-Chu-Lin-Resume.pdf",
-    };
-  }
-}
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+})();
 </script>
 </body>
 </html>
