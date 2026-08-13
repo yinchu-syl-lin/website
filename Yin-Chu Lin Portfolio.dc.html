@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var g=function(vt){if(!vt)return;try{vt.ready&&vt.ready.catch(function(){});vt.finished&&vt.finished.catch(function(){});vt.updateCallbackDone&&vt.updateCallbackDone.catch(function(){});}catch(e){}};window.addEventListener("pagereveal",function(e){g(e&&e.viewTransition);},true);window.addEventListener("pageswap",function(e){g(e&&e.viewTransition);},true);window.addEventListener("unhandledrejection",function(e){var r=e.reason||{},m=String(r.message||r.name||r||"");if(/transition/i.test(m)&&/(skip|abort|invalid state|not ready)/i.test(m)){e.preventDefault();e.stopImmediatePropagation&&e.stopImmediatePropagation();}},true);if(document.startViewTransition){var n=document.startViewTransition.bind(document);document.startViewTransition=function(){var vt=n.apply(null,arguments);g(vt);return vt;};}})();</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<script>
+(function(){
+  var swallow = function(m){ return /transition/i.test(m) && /(skip|abort|invalid state|not ready)/i.test(m); };
+  window.addEventListener("unhandledrejection", function(e){
+    var r = e.reason || {}; var m = String(r.message || r.name || r || "");
+    if (swallow(m) || r instanceof DOMException) e.preventDefault();
+  });
+  var guard = function(vt){ if (!vt) return; try { vt.ready && vt.ready.catch(function(){}); vt.finished && vt.finished.catch(function(){}); vt.updateCallbackDone && vt.updateCallbackDone.catch(function(){}); } catch (err) {} };
+  window.addEventListener("pagereveal", function(e){ guard(e && e.viewTransition); });
+  window.addEventListener("pageswap", function(e){ guard(e && e.viewTransition); });
+  if (document.startViewTransition) {
+    var native = document.startViewTransition.bind(document);
+    document.startViewTransition = function(){ var vt = native.apply(null, arguments); guard(vt); return vt; };
+  }
+})();
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #faf6f0; color: #191713; -webkit-font-smoothing: antialiased; }
+  a { color: #191713; text-decoration: none; }
+  a:hover { color: #7a1f2b; }
+  ::selection { background: #f2e04a; }
+  img { max-width: 100%; height: auto; }
+  @media (max-width: 767px) {
+    #nav-desktop { display: none !important; }
+    #nav-mobile { display: flex !important; }
+    #nav-menu { display: flex !important; }
+    section { padding-left: 1rem !important; padding-right: 1rem !important; }
+    nav, footer { padding-left: 1rem !important; padding-right: 1rem !important; }
+    #resume > div > div, #contact > div > div { flex-basis: 100% !important; }
+    nav a, footer a, section a { min-height: 44px; display: flex; align-items: center; }
+  }
+  #nav-mobile, #nav-menu { display: none; }
+  @media (min-width: 768px) {
+    #nav-desktop { display: flex !important; }
+  }
+
+  ::view-transition-group(*) { animation-duration: 600ms; animation-timing-function: cubic-bezier(0.2,0.8,0.2,1); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vh, 28px) 28px; width: 100%; max-width: min(1480px, calc(62vh * 2.25)); margin: 0 auto; }
+  @media (max-width: 1023px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; max-width: 100%; } }
+  @media (max-width: 767px) { .grid { grid-template-columns: 1fr; gap: 24px; } }
+  .card { position: relative; display: block; width: 100%; aspect-ratio: 3 / 4; container-type: inline-size; overflow: hidden; background: #efe8de; box-shadow: 0 14px 30px rgba(25,23,19,0.12); outline-offset: 4px; }
+  .card * { pointer-events: none; }
+  .card .art { position: absolute; inset: 0; overflow: hidden; }
+  .card .art img { width: 100%; height: 100%; object-fit: cover; transform: scale(1); transition: transform 700ms cubic-bezier(0.2,0.8,0.2,1), opacity 600ms ease; }
+  .card .veil { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,13,11,0.82) 0%, rgba(15,13,11,0.35) 42%, rgba(15,13,11,0.05) 72%); }
+  .card .tint { position: absolute; inset: 0; background: rgba(15,13,11,0.28); opacity: 0; transition: opacity 500ms ease; }
+  .card .base { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 4px; padding: 7cqw; color: #f7f2ea; }
+  .card .cat { font-size: clamp(7px, 3.4cqw, 10px); letter-spacing: 0.18em; }
+  .card .ttl { font-family: 'Instrument Serif', serif; font-size: clamp(13px, 8.5cqw, 24px); line-height: 1.12; }
+  .card .org { font-size: clamp(8px, 3.8cqw, 11px); color: rgba(247,242,234,0.72); }
+  .card .more { display: flex; flex-direction: column; gap: 8px; max-height: 0; opacity: 0; overflow: hidden; transition: max-height 500ms cubic-bezier(0.2,0.8,0.2,1), opacity 400ms ease; }
+  .card .rl { font-size: clamp(8px, 3.6cqw, 11px); }
+  .card .view { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; font-size: clamp(7px, 3.2cqw, 10px); letter-spacing: 0.2em; border-bottom: 1px solid rgba(247,242,234,0.6); padding-bottom: 3px; }
+  .card:hover .art img, .card:focus-visible .art img { transform: scale(1.04); }
+  .card:hover .tint, .card:focus-visible .tint { opacity: 1; }
+  .card:hover .more, .card:focus-visible .more { max-height: 76px; opacity: 1; }
+  .card .tc { position: absolute; right: 7cqw; top: 7cqw; font-size: clamp(7px, 3.2cqw, 10px); letter-spacing: 0.14em; color: #f2e04a; opacity: 0; transition: opacity 400ms ease; }
+  .card:hover .tc, .card:focus-visible .tc { opacity: 1; animation: blink 1s steps(1, end) infinite; }
+  @keyframes blink { 50% { opacity: 0.35; } }
+  @media (prefers-reduced-motion: reduce) {
+    .card .art img, .card .art img.alt, .card .more, .card .tint { transition: opacity 250ms ease !important; animation: none !important; }
+    .card:hover .art img, .card:focus-visible .art img { transform: none !important; }
+      ::view-transition-group(*) { animation-duration: 200ms; }
+  }
+  @media (min-width: 768px) { #nav-desktop { display: flex !important; }
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .impact { background-image: linear-gradient(rgba(242,224,74,0.55), rgba(242,224,74,0.55)); background-repeat: no-repeat; background-position: left center; background-size: 0% 100%; transition: background-size 1.1s cubic-bezier(0.16,0.84,0.24,1) 0.15s; }
+  .impact.lit { background-size: 100% 100%; }
+  @keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+</style>
+</helmet>
+<div style="font-family: 'Space Mono', ui-monospace, monospace; overflow-x: hidden">
+
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px 4vw; background: rgba(250,246,240,0.82); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(25,23,19,0.08)">
+    <a href="#home" style="font-family: 'Instrument Serif', serif; font-size: 21px; letter-spacing: 0.01em">Yin-Chu Lin</a>
+      <div id="nav-desktop" style="display: flex; gap: 26px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase">
+        <a href="#home" style="padding-bottom: 2px; border-bottom: 1px solid transparent" style-hover="border-bottom-color: #7a1f2b">Home</a>
+        <a href="#work" style="padding-bottom: 2px; border-bottom: 1px solid transparent" style-hover="border-bottom-color: #7a1f2b">Work</a>
+        <a href="#resume" style="padding-bottom: 2px; border-bottom: 1px solid transparent" style-hover="border-bottom-color: #7a1f2b">Resume</a>
+        <a href="#contact" style="padding-bottom: 2px; border-bottom: 1px solid transparent" style-hover="border-bottom-color: #7a1f2b">Contact</a>
+      </div>
+      <button id="nav-mobile" type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="width: 44px; height: 44px; flex-direction: column; justify-content: center; gap: 5px; padding: 0 10px; background: none; border: 0; cursor: pointer">
+        <span style="display: block; height: 1.5px; background: #191713"></span>
+        <span style="display: block; height: 1.5px; background: #191713"></span>
+        <span style="display: block; height: 1.5px; background: #191713"></span>
+      </button>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div id="nav-menu" style="position: absolute; left: 0; right: 0; top: 100%; display: flex; flex-direction: column; background: #faf6f0; border-bottom: 1px solid rgba(25,23,19,0.12); padding: 0.5rem 1rem 1rem">
+        <a href="#home" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Home</a>
+        <a href="#work" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Work</a>
+        <a href="#resume" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Resume</a>
+        <a href="#contact" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 44px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid rgba(25,23,19,0.08)">Contact</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <section id="home" data-screen-label="Home" style="position: relative; height: 100vh; min-height: 560px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: clamp(76px, 10vh, 110px) 4vw clamp(30px, 5vh, 56px); overflow: hidden">
+
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <div style="position: absolute; inset: 0">
+    <div style="position: absolute; left: 1%; top: 2%; width: 22%; min-width: 150px; transform: rotate(2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; cursor: default; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.13))" style-hover="transform: rotate(-2deg) scale(1.06) translateY(-8px); filter: drop-shadow(0 30px 44px rgba(25,23,19,0.2))">
+      <img data-x="01-screenplay-sylvia" src="uploads/01-screenplay-sylvia.png" alt="Screenplay page" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
+    </div>
+
+    <div style="position: absolute; left: 63%; top: 62%; width: 13%; min-width: 96px; transform: rotate(5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.16))" style-hover="transform: rotate(-3deg) scale(1.08) translateY(-6px); filter: drop-shadow(0 24px 34px rgba(80,40,20,0.3))">
+      <img src="uploads/iced-americano-transparent.png" alt="Iced americano" style="display: block; width: 100%; height: auto" />
+    </div>
+
+    <div style="position: absolute; left: 77.5%; top: 62%; width: 3.4%; min-width: 26px; transform: rotate(8deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 14px 20px rgba(25,23,19,0.16))" style-hover="transform: rotate(-8deg) scale(1.12); filter: drop-shadow(0 24px 32px rgba(122,31,43,0.32))">
+      <img src="uploads/07-lipstick.png" alt="Lipstick" style="display: block; width: 100%; height: auto" />
+    </div>
+
+    <div style="position: absolute; left: 6%; top: 30%; width: 23%; min-width: 150px; transform: rotate(0deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1); animation: drift 7s ease-in-out infinite" style-hover="transform: rotate(-6deg) scale(1.08)">
+      <img src="uploads/03-anthurium-flower.png" alt="Anthurium flower" style="display: block; width: 100%; height: auto; max-height: 46vh; object-fit: contain; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.14))" />
+    </div>
+
+    <div style="position: absolute; left: -1%; bottom: -2%; width: 31%; min-width: 200px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.14))" style-hover="transform: rotate(-1deg) scale(1.05) translateY(-6px); filter: drop-shadow(0 26px 40px rgba(160,80,20,0.28))">
+      <img data-x="02-film-roll" src="uploads/02-film-roll.png" alt="35mm film roll" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
+    </div>
+
+    <div style="position: absolute; left: 67%; top: 34%; width: 15%; min-width: 110px; transform: rotate(-2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" style-hover="transform: rotate(0deg) scale(1.06) translateY(-10px); filter: drop-shadow(0 22px 40px rgba(60,120,190,0.45))">
+      <img data-x="04-streaming-video-player" src="uploads/04-streaming-video-player.png" alt="Video player window" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
+    </div>
+
+    <div style="position: absolute; left: 66%; top: 1%; width: 31%; min-width: 200px; transform: rotate(-3deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.15))" style-hover="transform: rotate(0deg) scale(1.05); filter: drop-shadow(0 26px 40px rgba(122,31,43,0.3))">
+      <img data-x="05-vinyl-record" src="uploads/05-vinyl-record.png" alt="Vinyl record in sleeve" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
+    </div>
+
+    <div style="position: absolute; left: 86.5%; top: 70%; width: 13%; min-width: 96px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.18))" style-hover="transform: rotate(2deg) scale(1.09) translateY(-6px); filter: drop-shadow(0 22px 34px rgba(25,23,19,0.3))">
+      <img src="uploads/10-rode-microphone.png" alt="Broadcast microphone" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
+    </div>
+
+    <div style="position: absolute; left: 83%; top: 44%; width: 15%; min-width: 105px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" style-hover="transform: rotate(1deg) scale(1.06) translateY(-8px); filter: drop-shadow(0 24px 38px rgba(40,90,220,0.4))">
+      <img data-x="08-press-kit-folder" src="uploads/08-press-kit-folder.png" alt="Press kit folder" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
+    </div>
+
+    <div style="position: absolute; left: 16%; top: 55%; width: 17%; min-width: 130px; transform: rotate(-5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.14))" style-hover="transform: rotate(0deg) scale(1.05) translateY(-6px); filter: drop-shadow(0 22px 40px rgba(40,110,230,0.45))">
+      <img src="uploads/09-audio-player.png" alt="Audio player" style="display: block; width: 100%; height: auto" />
+    </div>
+      </div>
+    </sc-if>
+
+    <div style="position: relative; z-index: 5; width: clamp(240px, 32vw, 600px); text-align: center; display: flex; flex-direction: column; gap: clamp(16px, 2.4vh, 24px); align-items: center">
+      <h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(44px, 6.4vw, 92px); line-height: 0.98; letter-spacing: -0.01em">Yin-Chu&nbsp; Lin</h1>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <p style="margin: 0; font-size: clamp(12px, 1.1vw, 14px); letter-spacing: 0.2em; text-transform: uppercase">Communications &amp; Content Strategy</p>
+        <p style="margin: 0; font-size: 13px; letter-spacing: 0.08em; color: #6b645c">Culture · Media · Entertainment · Lifestyle</p>
+      </div>
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.35; text-wrap: pretty">Making sense of people, stories, and change.</p>
+      <a href="#work" style="margin-top: 6px; padding: 11px 22px; border: 1px solid rgba(25,23,19,0.35); border-radius: 999px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease" style-hover="background: #191713; color: #faf6f0; border-color: #191713">See the work</a>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 18px; margin-top: 14px">
+          <img src="uploads/01-screenplay-sylvia.png" alt="Screenplay page" style="width: 52px; height: auto; transform: rotate(-4deg); filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
+          <img src="uploads/03-anthurium-flower.png" alt="Anthurium flower" style="width: 46px; height: auto; transform: rotate(3deg); filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
+          <img src="uploads/05-vinyl-record.png" alt="Vinyl record in sleeve" style="width: 76px; height: auto; transform: rotate(-3deg); filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
+          <img src="uploads/02-film-roll.png" alt="35mm film roll" style="width: 84px; height: auto; transform: rotate(2deg); filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
+          <img src="uploads/10-rode-microphone.png" alt="Broadcast microphone" style="width: 40px; height: auto; filter: drop-shadow(0 8px 14px rgba(25,23,19,0.16))" />
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <section id="work" data-screen-label="Work" style="border-top: 1px solid rgba(25,23,19,0.1); box-sizing: border-box; padding: clamp(80px, 10vh, 110px) 3vw clamp(48px, 7vh, 80px); display: flex; align-items: center; justify-content: center">
+    <div style="width: 100%; max-width: 1480px; display: flex; flex-direction: column; gap: clamp(20px, 3vh, 34px)">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 32px; border-bottom: 1px solid rgba(25,23,19,0.14); padding-bottom: 16px">
+        <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b645c">Work</p>
+      </div>
+      <div class="grid">
+        <a class="card time" href="work-podcast-production.dc.html" data-slug="work-podcast-production" aria-label="Podcast Production and Cross-Platform Content — case study">
+          <div class="art">
+            <img loading="lazy" decoding="async" src="uploads/IMG_6805.jpg" alt="PODCAST artwork" style="object-position: 50% 62%" />
+
+          </div>
+          <div class="veil"></div>
+          <div class="tint"></div>
+          <span class="tc">00:12:04:09</span>
+
+          <div class="base">
+            <span class="cat">PODCAST</span>
+            <span class="ttl">Podcasting Everyday Conversations</span>
+            <span class="org">Taiwan Next Door Podcast</span>
+            <div class="more">
+              <span class="rl" style="color: rgba(247,242,234,0.86)">Co-Founder · Producer · Editor · 2024–Present</span>
+              <span class="view">VIEW CASE ↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="card time" href="work-publicity-media-relations.dc.html" data-slug="work-publicity-media-relations" aria-label="Publicity and Media Relations — case study">
+          <div class="art">
+            <img loading="lazy" decoding="async" src="uploads/演講工作照-215be783.jpg" alt="PUBLICITY artwork" style="object-position: 32% 45%" />
+          </div>
+          <div class="veil"></div>
+          <div class="tint"></div>
+          <span class="tc">00:03:47:22</span>
+          <div class="base">
+            <span class="cat">PUBLICITY</span>
+            <span class="ttl">Advancing Period Equity in Taiwan</span>
+            <span class="org">With Red</span>
+            <div class="more">
+              <span class="rl" style="color: rgba(247,242,234,0.86)">Advocacy and Research Director · 2021–2024</span>
+              <span class="view">VIEW CASE ↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="card time" href="work-documentary-production.dc.html" data-slug="work-documentary-production" aria-label="Documentary Production and Editorial Development — case study">
+          <div class="art">
+            <img loading="lazy" decoding="async" src="uploads/book-cropped.png" alt="DOCUMENTARY artwork" />
+
+          </div>
+          <div class="veil"></div>
+          <div class="tint"></div>
+
+          <span class="tc">00:04:12:18</span>
+          <div class="base">
+            <span class="cat">DOCUMENTARY</span>
+            <span class="ttl">Stories Four Generations of Women Never Told</span>
+            <span class="org">With Red</span>
+            <div class="more">
+              <span class="rl" style="color: rgba(247,242,234,0.86)">Producer · Lead Editor · Contributing Author · 2021–2024</span>
+              <span class="view">VIEW CASE ↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="card time" href="work-global-story-fest.dc.html" data-slug="work-global-story-fest" aria-label="Film Programming and Festival Partnerships — case study">
+          <div class="art">
+            <img loading="lazy" decoding="async" src="uploads/fxn 2026-04-12 153900BE852E37C3A9.JPG" alt="FILM FESTIVAL artwork" />
+          </div>
+          <div class="veil"></div>
+          <div class="tint"></div>
+          <span class="tc">00:21:36:05</span>
+          <div class="base">
+            <span class="cat">FILM FESTIVAL</span>
+            <span class="ttl">Global Story Fest</span>
+            <span class="org">University of Southern California</span>
+            <div class="more">
+              <span class="rl" style="color: rgba(247,242,234,0.86)">Partnership Director · Sep–Dec 2025</span>
+              <span class="view">VIEW CASE ↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="card time" href="work-music-multimedia-reporting.dc.html" data-slug="work-music-multimedia-reporting" aria-label="Music and Culture Multimedia Reporting — case study">
+          <div class="art">
+            <img loading="lazy" decoding="async" src="uploads/web/feature-page.png" alt="MULTIMEDIA REPORTING artwork" />
+
+          </div>
+          <div class="veil"></div>
+          <div class="tint"></div>
+          <span class="tc">00:08:53:14</span>
+          <div class="base">
+            <span class="cat">MULTIMEDIA REPORTING</span>
+            <span class="ttl">Reporting the Future of Taiwanese Through Music</span>
+            <span class="org">National Taiwan University</span>
+            <div class="more">
+              <span class="rl" style="color: rgba(247,242,234,0.86)">Reporter · Writer and Editor · Web Designer · 2022</span>
+              <span class="view">VIEW CASE ↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="card time" href="work-commonwealth-reporting.dc.html" data-slug="work-commonwealth-reporting" aria-label="Interview-Led Multimedia Reporting — case study">
+          <div class="art">
+            <img loading="lazy" decoding="async" src="uploads/web/climate.png" alt="JOURNALISM artwork" />
+          </div>
+          <div class="veil"></div>
+          <div class="tint"></div>
+          <span class="tc">00:17:29:07</span>
+          <div class="base">
+            <span class="cat">JOURNALISM</span>
+            <span class="ttl">Climate Action Journalism Series</span>
+            <span class="org">CommonWealth Magazine · CSR@CommonWealth</span>
+            <div class="more">
+              <span class="rl" style="color: rgba(247,242,234,0.86)">Freelance Journalist · 2020–2021</span>
+              <span class="view">VIEW CASE ↗</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" data-screen-label="Resume" style="border-top: 1px solid rgba(25,23,19,0.1); min-height: 100vh; box-sizing: border-box; padding: clamp(96px, 12vh, 130px) 6vw clamp(48px, 7vh, 80px); display: flex; align-items: center; justify-content: center">
+    <div style="width: 100%; max-width: 1120px; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: stretch">
+      <div style="flex: 0 1 min(100%, 250px); display: flex; flex-direction: column; gap: 26px">
+        <p style="margin: 0; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b645c">Resume</p>
+        <div style="position: relative; width: 100%; transform: rotate(-3deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1); background: #fffdf9; padding: 10px 10px 40px; box-shadow: 0 18px 34px rgba(25,23,19,0.16)" style-hover="transform: rotate(0deg) translateY(-6px)">
+          <img loading="lazy" decoding="async" src="uploads/web/portrait.png" alt="Portrait of Yin-Chu Lin" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: cover; filter: saturate(0.82) contrast(1.06) sepia(0.12); transition: filter 0.6s ease" style-hover="filter: saturate(1.05) contrast(1.02) sepia(0)" />
+          <span style="position: absolute; left: 12px; bottom: 13px; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6b645c">Yin-Chu Lin</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid rgba(25,23,19,0.14); padding-top: 16px">
+          <p style="margin: 0; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">Practice</p>
+          <p style="margin: 0; font-size: 12.5px; line-height: 1.8">Publicity · Content Strategy · Editorial · Multimedia Production</p>
+        </div>
+        <a href="{{ resumeUrl }}" target="_blank" rel="noopener" style="margin-top: auto; align-self: flex-start; display: flex; align-items: center; gap: 12px; padding: 13px 22px; background: #191713; color: #faf6f0; border-radius: 999px; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.3s ease, background 0.3s ease" style-hover="transform: translateY(-3px); background: #7a1f2b">Download PDF <span style="font-family: 'Instrument Serif', serif; font-size: 16px; letter-spacing: 0">↓</span></a>
+      </div>
+
+      <div style="flex: 1 1 min(100%, 480px); display: flex; flex-direction: column; gap: clamp(24px, 3.4vh, 40px)">
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(21px, 2vw, 32px); line-height: 1.3; text-wrap: pretty">Communications strategist with 5+ years of experience in earned media, editorial strategy, stakeholder engagement, and cross-cultural storytelling across nonprofit, news, and creator organizations.</p>
+        <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-wrap: wrap; gap: 28px 56px; border-top: 1px solid rgba(25,23,19,0.14); padding-top: clamp(18px, 2.6vh, 28px)">
+            <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px">
+              <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(52px, 5.6vw, 88px); line-height: 0.9; color: #7a1f2b" data-count="53" data-suffix="+">0+</p>
+              <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #4a453f; max-width: 30ch">Earned media placements across Taiwanese and international outlets</p>
+            </div>
+            <div style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px">
+              <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(52px, 5.6vw, 88px); line-height: 0.9; color: #7a1f2b" data-count="1.8" data-decimals="1" data-suffix="M+">0.0M+</p>
+              <p style="margin: 0; font-size: 12.5px; line-height: 1.6; color: #4a453f; max-width: 30ch">Short-form video views across social platforms</p>
+            </div>
+          </div>
+        </sc-if>
+        <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(25,23,19,0.14)">
+          <p style="margin: 0; padding: clamp(14px, 2vh, 20px) 0 6px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">Education</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 12px 0; border-bottom: 1px solid rgba(25,23,19,0.1)">
+            <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(18px, 1.5vw, 24px); line-height: 1.2">University of Southern California</p>
+            <p style="margin: 0; font-size: 12px; color: #6b645c">M.S. in Global Media and Communications · 2026</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 12px 0; border-bottom: 1px solid rgba(25,23,19,0.1)">
+            <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(18px, 1.5vw, 24px); line-height: 1.2">London School of Economics and Political Science</p>
+            <p style="margin: 0; font-size: 12px; color: #6b645c">M.S. in Global Media and Communications · 2026</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding: 12px 0">
+            <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: clamp(18px, 1.5vw, 24px); line-height: 1.2">National Taiwan University</p>
+            <div style="display: flex; flex-direction: column; gap: 2px; text-align: right">
+              <p style="margin: 0; font-size: 12px; color: #6b645c">M.S. in Health Behaviors and Community Sciences · 2022</p>
+              <p style="margin: 0; font-size: 12px; color: #6b645c">B.S. in Public Health · 2020</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-screen-label="Contact" style="border-top: 1px solid rgba(25,23,19,0.1); min-height: 100vh; box-sizing: border-box; padding: clamp(96px, 12vh, 130px) 6vw clamp(48px, 7vh, 80px); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden">
+    <div style="width: 100%; max-width: 1040px; display: flex; flex-wrap: wrap; gap: 40px 70px; align-items: flex-start; position: relative; z-index: 2">
+      <p style="margin: 0; flex: 0 0 100px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b645c; padding-top: 10px">Contact</p>
+      <div style="flex: 1 1 min(100%, 460px); display: flex; flex-direction: column; gap: clamp(22px, 3vh, 32px)">
+        <div style="position: relative; max-width: 560px">
+          <div style="position: relative; z-index: 2; border: 1px solid #2a2622; background: #fdf7ea; box-shadow: 0 22px 40px rgba(25,23,19,0.18), 0 2px 0 rgba(25,23,19,0.1)">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #2a2622; padding: 8px 12px">
+              <span style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase">New Message</span>
+              <div style="display: flex; align-items: center; gap: 7px">
+                <span style="display: block; width: 7px; height: 1.5px; background: #2a2622"></span>
+                <span style="display: block; width: 7px; height: 7px; border: 1.5px solid #2a2622"></span>
+                <span style="display: block; width: 8px; height: 8px; position: relative; background: linear-gradient(to bottom right, transparent 44%, #2a2622 44%, #2a2622 56%, transparent 56%), linear-gradient(to bottom left, transparent 44%, #2a2622 44%, #2a2622 56%, transparent 56%)"></span>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column">
+              <div style="display: flex; flex-wrap: wrap; gap: 6px 16px; border-bottom: 1px solid rgba(42,38,34,0.18); padding: 12px 14px">
+                <span style="flex: 0 0 66px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">To</span>
+                <a href="mailto:yinchu.syl.lin@gmail.com" style="font-size: 14px; letter-spacing: 0.01em" style-hover="color: #7a1f2b">yinchu.syl.lin@gmail.com</a>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 12px 14px">
+                <span style="flex: 0 0 66px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">Subject</span>
+                <span style="font-size: 14px">Let’s create something together.</span>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid rgba(42,38,34,0.18); padding: 14px">
+                <a href="mailto:yinchu.syl.lin@gmail.com?subject=Let%E2%80%99s%20create%20something%20together." style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid #2a2622; background: #2a2622; color: #fdf7ea; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease" style-hover="background: #7a1f2b; border-color: #7a1f2b; color: #fdf7ea">Write an email ↗</a>
+                <button type="button" onClick="{{ copyEmail }}" style="display: flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid #2a2622; background: none; color: #2a2622; font-family: 'Space Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.3s ease, color 0.3s ease" style-hover="background: #7a1f2b; border-color: #7a1f2b; color: #fdf7ea">{{ copyLabel }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 26px 40px; margin-top: clamp(28px, 6vh, 64px); font-size: 13px; line-height: 1.7">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/yin-chu-lin-aa4656237/" target="_blank" rel="noopener">Yin-Chu (Sylvia) Lin</a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">Instagram</span>
+            <a href="https://www.instagram.com/yin.logs" target="_blank" rel="noopener">yin.logs</a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6b645c">Location</span>
+            <span>Los Angeles, CA</span>
+            <span style="font-size: 11px; color: #6b645c">Open to Remote &amp; Relocation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position: absolute; right: 3%; bottom: clamp(24px, 5vh, 56px); width: 13vw; min-width: 120px; max-height: 46vh; z-index: 1; transform: rotate(-8deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1)" style-hover="transform: rotate(2deg) scale(1.06)">
+      <img src="uploads/03-anthurium-flower.png" alt="Anthurium flower" style="display: block; width: 100%; height: auto; max-height: 46vh; object-fit: contain; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.14))" />
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid rgba(25,23,19,0.1); padding: 26px 6vw; display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b645c">
+    <span>Communications &amp; Content Strategy</span>
+    <span>© 2026 Yin-Chu Lin</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;About&quot;},&quot;resumeUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;uploads/Yin-Chu%20Lin_20260812.pdf&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Resume&quot;}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== "undefined" ? window.innerWidth : 1440, menuOpen: false };
+  componentDidMount() {
+    const root = document.querySelector("#home") && document.querySelector("#home").parentElement;
+    this._measure = () => {
+      const w = root ? root.getBoundingClientRect().width : window.innerWidth;
+      if (w && Math.abs(w - this.state.w) > 1) this.setState({ w });
+    };
+    if (root && typeof ResizeObserver !== "undefined") {
+      this._ro = new ResizeObserver(this._measure);
+      this._ro.observe(root);
+    }
+    window.addEventListener("resize", this._measure);
+    this._measure();
+    this._io = new IntersectionObserver(
+      (entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("lit"); this._io.unobserve(en.target); } }),
+      { threshold: 0.6 }
+    );
+    this._wireCards();
+    this._observeImpacts();
+    this._countIo = new IntersectionObserver(
+      (entries) => entries.forEach((en) => { if (en.isIntersecting) { this._countIo.unobserve(en.target); this._runCount(en.target); } }),
+      { threshold: 0.6 }
+    );
+    this._observeCounts();
+  }
+  componentDidUpdate() {
+    this._observeImpacts();
+    this._observeCounts();
+  }
+  _wireCards() {
+    const mark = (el) => {
+      document.querySelectorAll(".card").forEach((c) => { c.style.viewTransitionName = ""; });
+      if (el) el.style.viewTransitionName = "poster";
+    };
+    document.querySelectorAll(".card").forEach((c) => {
+      if (c.dataset.wired) return;
+      c.dataset.wired = "1";
+      const go = () => { try { sessionStorage.setItem("lastCard", c.dataset.slug); } catch (e) {} mark(c); };
+      c.addEventListener("click", go);
+      c.addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
+    });
+    if (!this._revealWired) {
+      this._revealWired = true;
+      const restore = () => {
+        let slug = null;
+        try { slug = sessionStorage.getItem("lastCard"); } catch (e) {}
+        const el = slug && document.querySelector('.card[data-slug="' + slug + '"]');
+        if (el) { mark(el); setTimeout(() => mark(null), 800); }
+      };
+      window.addEventListener("pagereveal", (e) => {
+        if (e && e.viewTransition && e.viewTransition.finished) e.viewTransition.finished.catch(() => {});
+        restore();
+      });
+      window.addEventListener("pageshow", (e) => { if (e.persisted) restore(); });
+      window.addEventListener("pageswap", (e) => {
+        if (e && e.viewTransition && e.viewTransition.finished) e.viewTransition.finished.catch(() => {});
+      });
+      window.addEventListener("unhandledrejection", (e) => {
+        if (e.reason && /Transition was skipped/i.test(String(e.reason.message || e.reason))) e.preventDefault();
+      });
+    }
+  }
+  _observeCounts() {
+    if (!this._countIo) return;
+    document.querySelectorAll("[data-count]:not([data-counted])").forEach((el) => this._countIo.observe(el));
+  }
+  _runCount(el) {
+    el.setAttribute("data-counted", "1");
+    const target = parseFloat(el.getAttribute("data-count"));
+    const dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    const suffix = el.getAttribute("data-suffix") || "";
+    const dur = 900;
+    const t0 = performance.now();
+    const step = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(dec) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target.toFixed(dec) + suffix;
+    };
+    requestAnimationFrame(step);
+  }
+  _observeImpacts() {
+    if (!this._io) return;
+    document.querySelectorAll(".impact:not(.lit)").forEach((el) => this._io.observe(el));
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._measure);
+    if (this._ro) this._ro.disconnect();
+    if (this._io) this._io.disconnect();
+    if (this._countIo) this._countIo.disconnect();
+  }
+  renderVals() {
+    const wide = this.state.w >= 768;
+    return {
+      wide,
+      narrow: !wide,
+      menuOpen: !wide && this.state.menuOpen,
+      copyLabel: this.state.copied ? "Copied ✓" : "Copy address",
+      copyEmail: () => {
+        const addr = "yinchu.syl.lin@gmail.com";
+        const done = () => {
+          this.setState({ copied: true });
+          clearTimeout(this._copyT);
+          this._copyT = setTimeout(() => this.setState({ copied: false }), 1800);
+        };
+        if (navigator.clipboard) navigator.clipboard.writeText(addr).then(done, done);
+        else done();
+      },
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      showStats: this.props.showStats ?? true,
+      resumeUrl: this.props.resumeUrl ?? "uploads/Yin-Chu%20Lin_20260812.pdf",
+    };
+  }
+}
+</script>
+</body>
+</html>
