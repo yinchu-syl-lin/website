@@ -81,6 +81,18 @@
 </style>
 <style>
 .only-narrow { display: none; }
+.prop1:hover { transform: rotate(-2deg) scale(1.06) translateY(-8px) !important; filter: drop-shadow(0 30px 44px rgba(25,23,19,0.2)) !important; }
+.prop2:hover { transform: rotate(-3deg) scale(1.08) translateY(-6px) !important; filter: drop-shadow(0 24px 34px rgba(80,40,20,0.3)) !important; }
+.prop3:hover { transform: rotate(-6deg) scale(1.08) !important; filter: drop-shadow(0 22px 32px rgba(25,23,19,0.2)) !important; }
+.prop4:hover { transform: rotate(-2deg) scale(1.05) translateY(-6px) !important; filter: drop-shadow(0 26px 40px rgba(160,80,20,0.28)) !important; }
+.prop5:hover { transform: rotate(-1deg) scale(1.05) translateY(-8px) !important; filter: drop-shadow(0 26px 40px rgba(40,110,230,0.42)) !important; }
+.prop6:hover { transform: rotate(1deg) scale(1.05) !important; filter: drop-shadow(0 26px 40px rgba(122,31,43,0.32)) !important; }
+.prop7:hover { transform: rotate(2deg) scale(1.06) translateY(-8px) !important; filter: drop-shadow(0 22px 40px rgba(60,120,190,0.45)) !important; }
+.prop8:hover { transform: rotate(1deg) scale(1.06) translateY(-8px) !important; filter: drop-shadow(0 24px 38px rgba(40,90,220,0.4)) !important; }
+.prop9:hover { transform: rotate(-8deg) scale(1.12) !important; filter: drop-shadow(0 24px 32px rgba(122,31,43,0.32)) !important; }
+.prop10:hover { transform: rotate(2deg) scale(1.09) translateY(-6px) !important; filter: drop-shadow(0 22px 34px rgba(25,23,19,0.3)) !important; }
+@keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { [class^="prop"] { transition: none !important; } }
 @media (max-width: 767px) { .only-wide { display: none; } .only-narrow { display: block; } }
 .h1:hover { border-bottom-color: #7a1f2b }
 .h2:hover { border-bottom-color: #7a1f2b }
@@ -136,43 +148,43 @@
 
     <div class="only-wide">
       <div style="position: absolute; inset: 0">
-    <div style="position: absolute; left: 1%; top: 2%; width: 22%; min-width: 150px; transform: rotate(2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; cursor: default; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.13))" class="h5">
+    <div class="prop1" style="position: absolute; left: 1%; top: 2%; width: 22%; min-width: 150px; transform: rotate(2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; cursor: default; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.13))" class="h5">
       <img data-x="01-screenplay-sylvia" src="uploads/props/screenplay.png" alt="Screenplay page" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 63%; top: 62%; width: 13%; min-width: 96px; transform: rotate(5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.16))" class="h6">
+    <div class="prop2" style="position: absolute; left: 63%; top: 62%; width: 13%; min-width: 96px; transform: rotate(5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.16))" class="h6">
       <img src="uploads/props/iced-coffee.png" alt="Iced americano" style="display: block; width: 100%; height: auto" />
     </div>
 
-    <div style="position: absolute; left: 77.5%; top: 62%; width: 3.4%; min-width: 26px; transform: rotate(8deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 14px 20px rgba(25,23,19,0.16))" class="h7">
+    <div class="prop9" style="position: absolute; left: 77.5%; top: 62%; width: 3.4%; min-width: 26px; transform: rotate(8deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 14px 20px rgba(25,23,19,0.16))" class="h7">
       <img src="uploads/props/lipstick.png" alt="Lipstick" style="display: block; width: 100%; height: auto" />
     </div>
 
-    <div style="position: absolute; left: 6%; top: 30%; width: 23%; min-width: 150px; transform: rotate(0deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1); animation: drift 7s ease-in-out infinite" class="h8">
+    <div class="prop3" style="position: absolute; left: 6%; top: 30%; width: 23%; min-width: 150px; transform: rotate(0deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1); animation: drift 7s ease-in-out infinite" class="h8">
       <img src="uploads/props/flower.png" alt="Anthurium flower" style="display: block; width: 100%; height: auto; max-height: 46vh; object-fit: contain; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.14))" />
     </div>
 
-    <div style="position: absolute; left: -1%; bottom: -2%; width: 31%; min-width: 200px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.14))" class="h9">
+    <div class="prop4" style="position: absolute; left: -1%; bottom: -2%; width: 31%; min-width: 200px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.14))" class="h9">
       <img data-x="02-film-roll" src="uploads/props/film-roll.png" alt="35mm film roll" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 67%; top: 34%; width: 15%; min-width: 110px; transform: rotate(-2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" class="h10">
+    <div class="prop7" style="position: absolute; left: 67%; top: 34%; width: 15%; min-width: 110px; transform: rotate(-2deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" class="h10">
       <img data-x="04-streaming-video-player" src="uploads/props/video-player.png" alt="Video player window" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 66%; top: 1%; width: 31%; min-width: 200px; transform: rotate(-3deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.15))" class="h11">
+    <div class="prop6" style="position: absolute; left: 66%; top: 1%; width: 31%; min-width: 200px; transform: rotate(-3deg); transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 20px 30px rgba(25,23,19,0.15))" class="h11">
       <img data-x="05-vinyl-record" src="uploads/props/vinyl.png" alt="Vinyl record in sleeve" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 86.5%; top: 70%; width: 13%; min-width: 96px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.18))" class="h12">
+    <div class="prop10" style="position: absolute; left: 86.5%; top: 70%; width: 13%; min-width: 96px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 16px 24px rgba(25,23,19,0.18))" class="h12">
       <img src="uploads/props/microphone.png" alt="Broadcast microphone" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 83%; top: 44%; width: 15%; min-width: 105px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" class="h13">
+    <div class="prop8" style="position: absolute; left: 83%; top: 44%; width: 15%; min-width: 105px; transform: rotate(0deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 26px rgba(25,23,19,0.14))" class="h13">
       <img data-x="08-press-kit-folder" src="uploads/props/press-kit.png" alt="Press kit folder" style="display: block; width: 100%; height: auto; max-height: 40vh; object-fit: contain" />
     </div>
 
-    <div style="position: absolute; left: 16%; top: 55%; width: 17%; min-width: 130px; transform: rotate(-5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.14))" class="h14">
+    <div class="prop5" style="position: absolute; left: 16%; top: 55%; width: 17%; min-width: 130px; transform: rotate(-5deg); transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s ease; filter: drop-shadow(0 18px 28px rgba(25,23,19,0.14))" class="h14">
       <img src="uploads/props/audio-player.png" alt="Audio player" style="display: block; width: 100%; height: auto" />
     </div>
       </div>
